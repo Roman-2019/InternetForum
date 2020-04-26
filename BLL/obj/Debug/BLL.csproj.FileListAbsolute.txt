@@ -1,0 +1,5 @@
+E:\C\InternetForum\BLL\bin\Debug\BLL.dll
+E:\C\InternetForum\BLL\bin\Debug\BLL.pdb
+E:\C\InternetForum\BLL\obj\Debug\BLL.csprojAssemblyReference.cache
+E:\C\InternetForum\BLL\obj\Debug\BLL.dll
+E:\C\InternetForum\BLL\obj\Debug\BLL.pdb

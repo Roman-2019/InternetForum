@@ -1,0 +1,11 @@
+E:\C\InternetForum\DAL\bin\Debug\DAL.dll.config
+E:\C\InternetForum\DAL\bin\Debug\DAL.dll
+E:\C\InternetForum\DAL\bin\Debug\DAL.pdb
+E:\C\InternetForum\DAL\bin\Debug\EntityFramework.dll
+E:\C\InternetForum\DAL\bin\Debug\EntityFramework.SqlServer.dll
+E:\C\InternetForum\DAL\bin\Debug\EntityFramework.xml
+E:\C\InternetForum\DAL\bin\Debug\EntityFramework.SqlServer.xml
+E:\C\InternetForum\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+E:\C\InternetForum\DAL\obj\Debug\DAL.csproj.CopyComplete
+E:\C\InternetForum\DAL\obj\Debug\DAL.dll
+E:\C\InternetForum\DAL\obj\Debug\DAL.pdb
