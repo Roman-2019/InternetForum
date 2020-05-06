@@ -1,4 +1,5 @@
-﻿using System;
+﻿using InternetForum.App_Start;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,6 +14,7 @@ namespace InternetForum
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
+            WebLightInjectConfig.Configurate();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
