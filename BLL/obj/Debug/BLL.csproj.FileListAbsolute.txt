@@ -26,3 +26,4 @@ E:\C\InternetForum\BLL\bin\Debug\LightInject.WebApi.dll.config
 E:\C\InternetForum\BLL\bin\Debug\System.ValueTuple.xml
 E:\C\InternetForum\BLL\bin\Debug\EntityFramework.xml
 E:\C\InternetForum\BLL\obj\Debug\BLL.csproj.CopyComplete
+E:\C\InternetForum\BLL\bin\Debug\ru\EntityFramework.resources.dll
