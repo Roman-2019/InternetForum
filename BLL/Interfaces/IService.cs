@@ -10,8 +10,7 @@ namespace BLL.Interfaces
     {
         void Add(TModel model);
         void Remove(int id);
-        void Update(TModel model);
-        TModel GetById(int id);
+        void Update(TModel model);       
         IEnumerable<TModel> GetAll();
     }
 }

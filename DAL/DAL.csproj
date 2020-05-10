@@ -52,9 +52,9 @@
   <ItemGroup>
     <Compile Include="DBContext.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Migrations\202005071245450_InitialCreate.cs" />
-    <Compile Include="Migrations\202005071245450_InitialCreate.Designer.cs">
-      <DependentUpon>202005071245450_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\202005081217047_InitialCreate.cs" />
+    <Compile Include="Migrations\202005081217047_InitialCreate.Designer.cs">
+      <DependentUpon>202005081217047_InitialCreate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Author.cs" />
@@ -73,13 +73,13 @@
     <Compile Include="Repositories\TagRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202005071245450_InitialCreate.resx">
-      <DependentUpon>202005071245450_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202005081217047_InitialCreate.resx">
+      <DependentUpon>202005081217047_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

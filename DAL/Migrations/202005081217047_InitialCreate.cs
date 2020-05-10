@@ -29,8 +29,8 @@ namespace DAL.Migrations
                         AuthorId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
                 .ForeignKey("dbo.Posts", t => t.PostId, cascadeDelete: true)
+                .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: true)
                 .Index(t => t.PostId)
                 .Index(t => t.AuthorId);
             
@@ -46,8 +46,8 @@ namespace DAL.Migrations
                         AuthorId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: false)
                 .ForeignKey("dbo.Authors", t => t.AuthorId, cascadeDelete: false)
-                .ForeignKey("dbo.Categories", t => t.CategoryId, cascadeDelete: true)
                 .Index(t => t.CategoryId)
                 .Index(t => t.AuthorId);
             
@@ -110,14 +110,14 @@ namespace DAL.Migrations
         
         public override void Down()
         {
+            DropForeignKey("dbo.Posts", "AuthorId", "dbo.Authors");
+            DropForeignKey("dbo.Comments", "AuthorId", "dbo.Authors");
             DropForeignKey("dbo.TagPosts", "Post_Id", "dbo.Posts");
             DropForeignKey("dbo.TagPosts", "Tag_Id", "dbo.Tags");
             DropForeignKey("dbo.TagComments", "Comment_Id", "dbo.Comments");
             DropForeignKey("dbo.TagComments", "Tag_Id", "dbo.Tags");
             DropForeignKey("dbo.Comments", "PostId", "dbo.Posts");
             DropForeignKey("dbo.Posts", "CategoryId", "dbo.Categories");
-            DropForeignKey("dbo.Posts", "AuthorId", "dbo.Authors");
-            DropForeignKey("dbo.Comments", "AuthorId", "dbo.Authors");
             DropIndex("dbo.TagPosts", new[] { "Post_Id" });
             DropIndex("dbo.TagPosts", new[] { "Tag_Id" });
             DropIndex("dbo.TagComments", new[] { "Comment_Id" });

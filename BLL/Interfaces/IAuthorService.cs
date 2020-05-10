@@ -9,5 +9,6 @@ namespace BLL.Interfaces
 {
     public interface IAuthorService: IService<AuthorModel>
     {
+        AuthorModel GetById(int id);
     }
 }

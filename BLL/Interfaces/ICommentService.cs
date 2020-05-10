@@ -9,5 +9,6 @@ namespace BLL.Interfaces
 {
     public interface ICommentService: IService<CommentModel>
     {
+        CommentModel GetById(int id);
     }
 }

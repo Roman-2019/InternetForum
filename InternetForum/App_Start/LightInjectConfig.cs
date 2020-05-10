@@ -12,7 +12,7 @@ using BLL.Models;
 
 namespace InternetForum.App_Start
 {
-    public class WebLightInjectConfig
+    public static class LightInjectConfig
     {
         public static void Configurate()
         {
@@ -23,18 +23,18 @@ namespace InternetForum.App_Start
             container.EnablePerWebRequestScope();
 
             var config = new MapperConfiguration(cfg => cfg.AddProfiles(
-                 new List<Profile>() { new WebAutomapperProfile(), new BLLAutomapperProfile() }));
+                 new List<Profile>() { new AutomapperProfile(), new BLLAutomapperProfile() }));
 
             container.Register(c => config.CreateMapper());
 
             container = BLLLigthInjectConfig.Configuration(container);
 
-            container.Register<IService<PostModel>, PostService>();
-            container.Register<IService<AuthorModel>, AuthorService>();
-            container.Register<IService<CategoryModel>, CategoryService>();
-            container.Register<IService<CommentModel>, CommentService>();
-            container.Register<IService<PictureModel>, PictureService>();
-            container.Register<IService<TagModel>, TagService>();
+            container.Register<IPostService, PostService>();
+            container.Register<IAuthorService, AuthorService>();
+            container.Register<ICategoryService, CategoryService>();
+            container.Register<ICommentService, CommentService>();
+            container.Register<IPictureService, PictureService>();
+            container.Register<ITagService, TagService>();
 
             container.EnableMvc();
 

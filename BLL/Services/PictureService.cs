@@ -11,13 +11,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class PictureService : ForumService<PictureModel, Picture>, IService<PictureModel>
+    public class PictureService : ForumService<PictureModel, Picture>, IPictureService
     {
         public readonly IMapper _mapper;
 
         public PictureService(IRepository<Picture> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
+        }
+
+        public PictureModel GetById(int id)
+        {
+            var pictureModel = GetAll().FirstOrDefault(x => x.Id == id);
+            return pictureModel;
         }
 
         public override PictureModel Map(Picture model)

@@ -11,13 +11,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class AuthorService: ForumService<AuthorModel, Author>, IService<AuthorModel>
+    public class AuthorService: ForumService<AuthorModel, Author>, IAuthorService
     {
         public readonly IMapper _mapper;
 
         public AuthorService(IRepository<Author> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
+        }
+
+        public AuthorModel GetById(int id)
+        {
+            var authorModel = GetAll().FirstOrDefault(x => x.Id == id);
+            return authorModel;
         }
 
         public override AuthorModel Map(Author model)

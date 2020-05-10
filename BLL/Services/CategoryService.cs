@@ -11,13 +11,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class CategoryService: ForumService<CategoryModel, Category>, IService<CategoryModel>
+    public class CategoryService: ForumService<CategoryModel, Category>, ICategoryService
     {
         public readonly IMapper _mapper;
 
         public CategoryService(IRepository<Category> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
+        }
+
+        public CategoryModel GetById(int id)
+        {
+            var categoryModel = GetAll().FirstOrDefault(x => x.Id == id);
+            return categoryModel;
         }
 
         public override CategoryModel Map(Category model)

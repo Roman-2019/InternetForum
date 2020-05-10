@@ -9,5 +9,7 @@ namespace BLL.Interfaces
 {
     public interface IPostService: IService<PostModel>
     {
+        PostModel GetById(int id);
+        IEnumerable<PostModel> Posts();
     }
 }

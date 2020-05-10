@@ -15,7 +15,7 @@ namespace BLL
         {
             CreateMap<PostModel, Post>()
                 .ForMember(x => x.Category, y => y.MapFrom(x => x.CategoryModel))
-                .ForMember(x => x.CategoryId, y => y.MapFrom(x => x.CategoryModelId))
+                .ForMember(x => x.Author, y => y.MapFrom(x => x.AuthorModel))
                 .ReverseMap();
 
             CreateMap<CategoryModel, Category>().ReverseMap();

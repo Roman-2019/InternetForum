@@ -29,5 +29,11 @@ namespace InternetForum.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.PostViewModel> PostViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.AuthorViewModel> AuthorViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.CategoryViewModel> CategoryViewModels { get; set; }
     }
 }

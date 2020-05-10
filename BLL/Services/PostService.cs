@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class PostService : ForumService<PostModel, Post>, IService<PostModel>
+    public class PostService : ForumService<PostModel, Post>, IPostService
     {
         public readonly IMapper _mapper;
 
@@ -19,6 +19,25 @@ namespace BLL.Services
         {
             _mapper = mapper;
         }
+
+        public PostModel GetById(int id)
+        {
+            var postModel = GetAll().FirstOrDefault(x => x.Id == id);
+            return postModel;
+        }
+
+        public IEnumerable<PostModel> Posts()
+        {
+            var posts = _repository.GetAll()
+                .OrderByDescending(x => x.DateTime)
+                .ToList();
+
+            var postsModel = Map(posts);
+
+            return postsModel;
+
+        }
+
 
         public override PostModel Map(Post model)
         {

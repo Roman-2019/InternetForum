@@ -11,13 +11,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class CommentService: ForumService<CommentModel, Comment>, IService<CommentModel>
+    public class CommentService: ForumService<CommentModel, Comment>, ICommentService
     {
         public readonly IMapper _mapper;
 
         public CommentService(IRepository<Comment> repository, IMapper mapper) : base(repository)
         {
             _mapper = mapper;
+        }
+
+        public CommentModel GetById(int id)
+        {
+            var commentModel = GetAll().FirstOrDefault(x => x.Id == id);
+            return commentModel;
         }
 
         public override CommentModel Map(Comment model)

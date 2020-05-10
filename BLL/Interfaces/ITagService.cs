@@ -9,5 +9,6 @@ namespace BLL.Interfaces
 {
     public interface ITagService: IService<TagModel>
     {
+        TagModel GetById(int id);
     }
 }

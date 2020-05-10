@@ -8,17 +8,14 @@ using System.Web;
 
 namespace InternetForum.App_Start
 {
-    public class WebAutomapperProfile: Profile
+    public class AutomapperProfile: Profile
     {
-        public WebAutomapperProfile()
+        public AutomapperProfile()
         {
-           // CreateMap<TovarApiModel, TovarModel>()
-           //.ForMember(x => x.CategoryModels, y => y.MapFrom(x => x.CategoryApiModels))
-           //.ForMember(x => x.CategoryModelId, y => y.MapFrom(x => x.CategoryApiModelId))
-           //.ReverseMap();
-
-           // CreateMap<CategoryApiModel, CategoryModel>().ReverseMap();
-            CreateMap<PostViewModel, PostModel>().ReverseMap();
+            CreateMap<PostViewModel, PostModel>()
+                .ForMember(x => x.AuthorModel, s => s.MapFrom(x => x.AuthorViewModel))
+                .ForMember(x => x.CategoryModel, s => s.MapFrom(x => x.CategoryViewModel))
+                .ReverseMap();
             CreateMap<AuthorViewModel, AuthorModel>().ReverseMap();
             CreateMap<CommentViewModel, CommentModel>().ReverseMap();
             CreateMap<TagViewModel, TagModel>().ReverseMap();

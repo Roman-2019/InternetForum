@@ -14,7 +14,7 @@ namespace InternetForum
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            WebLightInjectConfig.Configurate();
+            LightInjectConfig.Configurate();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
