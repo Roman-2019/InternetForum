@@ -44,7 +44,8 @@ namespace DAL.Migrations
 
                 context.Posts.Add(new Post
                 {
-                    AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
+                    Author = context.Authors.FirstOrDefault(x => x.NickName == "Kostya"),
+                    //AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
                     Category = context.Categories.FirstOrDefault(x => x.Title == "Fishing"),
                     DateTime = DateTime.Today,
                     Text = "ffgghghgguuhhuhhhhuuuhhj13",
@@ -53,7 +54,8 @@ namespace DAL.Migrations
 
                 context.Posts.Add(new Post
                 {
-                    AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
+                    Author = context.Authors.FirstOrDefault(x => x.NickName == "Kostya"),
+                    //AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
                     Category = context.Categories.FirstOrDefault(x => x.Title == "Auto"),
                     DateTime = DateTime.Today,
                     Text = "ffgghghgguuhhuhhhhuuuhhj13 rtuityug",
@@ -62,7 +64,8 @@ namespace DAL.Migrations
 
                 context.Posts.Add(new Post
                 {
-                    AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
+                    Author = context.Authors.FirstOrDefault(x => x.NickName == "Kostya"),
+                   // AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
                     Category = context.Categories.FirstOrDefault(x => x.Title == "Humor"),
                     DateTime = DateTime.Today,
                     Text = "ffgghghgguuhhuhhhhuuuhhj13 123",

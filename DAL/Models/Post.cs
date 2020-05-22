@@ -14,12 +14,12 @@ namespace DAL.Models
         public DateTime DateTime { get; set; }
 
         public int CategoryId { get; set; }
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         public ICollection<Comment> Comments { get; set; }
 
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
     }

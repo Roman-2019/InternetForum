@@ -17,7 +17,10 @@ namespace InternetForum.App_Start
                 .ForMember(x => x.CategoryModel, s => s.MapFrom(x => x.CategoryViewModel))
                 .ReverseMap();
             CreateMap<AuthorViewModel, AuthorModel>().ReverseMap();
-            CreateMap<CommentViewModel, CommentModel>().ReverseMap();
+            CreateMap<CommentViewModel, CommentModel>()
+                .ForMember(x => x.AuthorModel, s => s.MapFrom(x => x.AuthorViewModel))
+                .ForMember(x => x.PostModel, s => s.MapFrom(x => x.PostViewModel))
+                .ReverseMap();
             CreateMap<TagViewModel, TagModel>().ReverseMap();
             CreateMap<CategoryViewModel, CategoryModel>().ReverseMap();
             CreateMap<PictureViewModel, PictureModel>().ReverseMap();

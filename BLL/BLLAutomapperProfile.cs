@@ -19,7 +19,11 @@ namespace BLL
                 .ReverseMap();
 
             CreateMap<CategoryModel, Category>().ReverseMap();
-            CreateMap<CommentModel, Comment>().ReverseMap();
+            CreateMap<CommentModel, Comment>()
+                .ForMember(x => x.Post, y => y.MapFrom(x => x.PostModel))
+                .ForMember(x => x.Author, y => y.MapFrom(x => x.AuthorModel))
+                .ReverseMap();
+
             CreateMap<AuthorModel, Author>().ReverseMap();
             CreateMap<PictureModel, Picture>().ReverseMap();
             CreateMap<TagModel, Tag>().ReverseMap();

@@ -35,5 +35,11 @@ namespace InternetForum.Models
         public System.Data.Entity.DbSet<InternetForum.Models.AuthorViewModel> AuthorViewModels { get; set; }
 
         public System.Data.Entity.DbSet<InternetForum.Models.CategoryViewModel> CategoryViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.CommentViewModel> CommentViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.PictureViewModel> PictureViewModels { get; set; }
+
+        public System.Data.Entity.DbSet<InternetForum.Models.TagViewModel> TagViewModels { get; set; }
     }
 }

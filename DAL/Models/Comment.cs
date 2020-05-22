@@ -13,10 +13,10 @@ namespace DAL.Models
         public DateTime DateTime { get; set; }
 
         public int PostId { get; set; }
-        public Post Post { get; set; }
+        public virtual Post Post { get; set; }
 
         public int AuthorId { get; set; }
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
 
         public ICollection<Tag> Tags { get; set; }
     }
