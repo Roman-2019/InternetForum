@@ -1,0 +1,35 @@
+﻿@model InternetForum.Models.PostCategory
+@{
+    ViewBag.Title = "PostByCategory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>PostByCategory</h2>
+
+<form method="get">
+    <div class="form-inline">
+        <label class="control-label">Category: </label>
+        @Html.DropDownList("id", Model.Categories as SelectList,
+                    htmlAttributes: new { @class = "form-control" })
+
+        <input type="submit" value="submit" class="btn btn-default" />
+    </div>
+</form>
+<table>
+    <tr>
+        <th>Tovar name</th>
+        <th>Price</th>
+    </tr>
+
+    @foreach (var item in Model.Posts)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Text)
+            </td>
+        </tr>
+    }
+</table>

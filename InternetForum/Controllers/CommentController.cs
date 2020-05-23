@@ -13,16 +13,18 @@ namespace InternetForum.Controllers
     public class CommentController : Controller
     {
         private readonly ICommentService _commentService;
+        private readonly IPostService _postService;
         private readonly IMapper _mapper;
 
         public CommentController()
         {
 
         }
-        public CommentController(ICommentService service, IMapper mapper)
+        public CommentController(ICommentService service, IPostService postservice, IMapper mapper)
         {
             _mapper = mapper;
             _commentService = service;
+            _postService = postservice;
         }
 
         // GET: Comment
@@ -39,6 +41,29 @@ namespace InternetForum.Controllers
             var commentModel = _commentService.GetById(id);
             var commentViewModel = _mapper.Map<CommentViewModel>(commentModel);
             return View(commentViewModel);
+        }
+
+        public ActionResult CommentByPost(int id)
+        {
+            var allComments = _commentService.GetAll();
+            var comments = _mapper.Map<IEnumerable<CommentViewModel>>(allComments);
+            if (id != null && id != 0)
+            {
+                comments = comments.Where(x => x.PostViewModel.Id == id);
+            }
+
+            //var allPosts = _postService.GetAll();
+            //var posts = _mapper.Map<IEnumerable<PostViewModel>>(allPosts);
+            var postModel = _postService.GetById(id);
+            var postViewModel = _mapper.Map<PostViewModel>(postModel);
+            CommentsPost commentsList = new CommentsPost
+            {
+                Comments = comments,
+                //Posts = new SelectList(posts, "Id", "Title ")
+                PostViewModel=postViewModel
+            };
+
+            return View(commentsList);
         }
 
         // GET: Comment/Create

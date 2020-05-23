@@ -15,16 +15,18 @@ namespace InternetForum.Controllers
     {
 
         private readonly IPostService _postService;
+        private readonly ICategoryService _categoryService;
         private readonly IMapper _mapper;
 
         public PostController()
         {
             
         }
-        public PostController(IPostService service, IMapper mapper)
+        public PostController(IPostService service, ICategoryService categoryservice, IMapper mapper)
         {
             _mapper = mapper;
             _postService = service;
+            _categoryService = categoryservice;
         }
 
         // GET: Post
@@ -41,6 +43,26 @@ namespace InternetForum.Controllers
             var postModel = _postService.GetById(id);
             var postViewModel = _mapper.Map<PostViewModel>(postModel);
             return View(postViewModel);
+        }
+
+        public ActionResult PostByCategory(int? id)
+        {
+            var allPosts = _postService.GetAll();
+            var posts = _mapper.Map<IEnumerable<PostViewModel>>(allPosts);
+            if (id != null && id != 0)
+            {
+                posts = posts.Where(x => x.CategoryViewModel.Id == id);
+            }
+
+            var allCategories = _categoryService.GetAll();
+            var categories = _mapper.Map<IEnumerable<CategoryViewModel>>(allCategories);
+            PostCategory postsList = new PostCategory
+            {
+                Posts = posts,
+                Categories = new SelectList(categories, "Id", "Title ")
+            };
+
+            return View(postsList);
         }
 
         // GET: Post/Create

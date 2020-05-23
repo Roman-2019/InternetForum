@@ -18,5 +18,7 @@ namespace InternetForum.Models
         public int AuthorViewModelId { get; set; }
         public AuthorViewModel AuthorViewModel { get; set; }
 
+        public ICollection<CommentViewModel> CommentViewModels { get; set; }
+
     }
 }

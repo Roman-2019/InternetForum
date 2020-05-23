@@ -5,12 +5,35 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+@*<h2>Index</h2>*@
+
+<h2>List of all Posts</h2>
+
+<table class="table">
+    <tr>
+        <th>Author</th>
+        <th>Title post</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.AuthorViewModel.NickName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.RouteLink("Go to details", new {controller="Comment", action="CommentByPost",  id = item.Id })
+    </td>
+</tr>
+    }
+</table>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+@*<table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.AuthorViewModel.NickName)
@@ -55,4 +78,4 @@
     </tr>
 }
 
-</table>
+</table>*@

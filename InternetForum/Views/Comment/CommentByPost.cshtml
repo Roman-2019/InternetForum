@@ -1,0 +1,19 @@
+﻿@model InternetForum.Models.CommentsPost
+@{
+    ViewBag.Title = "CommentByPost";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>CommentByPost</h2>
+
+<div>
+    @Html.DisplayFor(model => model.PostViewModel.Title)
+   
+        @foreach (var item in Model.Comments) 
+        {
+    <p>
+        @Html.DisplayFor(modelItem => item.Text)
+    </p>
+        }
+    
+</div>

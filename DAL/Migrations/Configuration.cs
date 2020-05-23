@@ -76,7 +76,8 @@ namespace DAL.Migrations
 
                 context.Comments.Add(new Comment
                 {
-                    AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
+                    Author = context.Authors.FirstOrDefault(x => x.NickName == "Kostya"),
+                    //AuthorId = context.Authors.Single(x => x.NickName == "Kostya").Id,
                     Post = context.Posts.FirstOrDefault(x => x.Title == "Fishing rod"),
                     DateTime = DateTime.Today,
                     Text = "ffgghghgguuhhuhhhhuuuhhj13 hjlhjkhcjghjb",

@@ -43,18 +43,19 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.CategoryViewModelId, "CategoryViewModelId", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("CategoryViewModelId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.CategoryViewModelId, "", new { @class = "text-danger" })
+                @Html.LabelFor(model => model.CategoryViewModelId, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.CategoryViewModelId, new { htmlAttributes = new { @class = "form-control", placeholder = "Updated category" } })
+                    @Html.ValidationMessageFor(model => model.CategoryViewModelId, "", new { @class = "text-danger" })
+                </div>
             </div>
-        </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.AuthorViewModelId, "AuthorViewModelId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.AuthorViewModelId, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("AuthorViewModelId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.EditorFor(model => model.AuthorViewModelId, new { htmlAttributes = new { @class = "form-control", placeholder = "Updated category" } })
                 @Html.ValidationMessageFor(model => model.AuthorViewModelId, "", new { @class = "text-danger" })
+
             </div>
         </div>
 
